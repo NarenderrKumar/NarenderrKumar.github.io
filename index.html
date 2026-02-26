@@ -1,130 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Narender Kumar</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Narender Kumar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    max-width: 900px;
-    margin: 40px auto;
-    line-height: 1.7;
-    padding: 0 20px;
-    color: #222;
-}
-h1 {
-    font-size: 32px;
-    margin-bottom: 5px;
-}
-h2 {
-    margin-top: 40px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-}
-a {
-    color: #0366d6;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-.small {
-    color: #666;
-    font-size: 14px;
-}
-ul {
-    padding-left: 20px;
-}
-hr {
-    margin: 40px 0;
-}
-</style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #fff;
+      color: #333;
+      display: flex;
+      min-height: 100vh;
+    }
 
+    /* ── SIDEBAR ── */
+    #sidebar {
+      width: 260px;
+      min-width: 260px;
+      padding: 40px 24px;
+      border-right: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    #sidebar h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #111;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: #f0f0f0;
+      color: #444;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .social-icons a:hover { background: #4078c8; color: #fff; }
+    .social-icons a.github:hover  { background: #24292e; }
+    .social-icons a.scholar:hover { background: #4285F4; }
+    .social-icons a.linkedin:hover{ background: #0077b5; }
+    .social-icons a.orcid:hover   { background: #A6CE39; color: #fff; }
+
+    .social-icons svg { width: 18px; height: 18px; fill: currentColor; }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 10px 0 18px;
+    }
+
+    .nav-links { display: flex; flex-direction: column; gap: 4px; margin-bottom: 24px; }
+
+    .nav-links a {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #4078c8;
+      text-decoration: none;
+      padding: 2px 0;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+
+    .sidebar-section-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .project-links { display: flex; flex-direction: column; gap: 4px; }
+    .project-links a {
+      font-size: 0.92rem;
+      color: #4078c8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 30px;
+      font-size: 0.75rem;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    /* ── MAIN CONTENT ── */
+    #main {
+      flex: 1;
+      padding: 48px 56px;
+      max-width: 860px;
+    }
+
+    #main h2.page-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    .subtitle a { color: #4078c8; text-decoration: none; }
+    .subtitle a:hover { text-decoration: underline; }
+
+    section { margin-bottom: 42px; }
+
+    section h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 14px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #eee;
+    }
+
+    section ul {
+      list-style: disc;
+      padding-left: 22px;
+      line-height: 1.85;
+      color: #333;
+      font-size: 0.97rem;
+    }
+
+    section ul li em {
+      font-style: italic;
+      color: #555;
+    }
+
+    section p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    section p a { color: #4078c8; text-decoration: none; }
+    section p a:hover { text-decoration: underline; }
+
+    .project-card {
+      background: #f8f9fb;
+      border-left: 4px solid #4078c8;
+      border-radius: 4px;
+      padding: 10px 16px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      body { flex-direction: column; }
+      #sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e0e0e0; }
+      #main { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Narender Kumar</h1>
-<div class="small">
-PhD Candidate in Physics<br>
-United Arab Emirates University, UAE<br>
-Email: nkumar4@mtu.edu | 700039128@uaeu.ac.ae<br>
-Google Scholar: 192 citations | H-index: 7
-</div>
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <h1>Narender Kumar</h1>
 
-<hr>
+  <div class="social-icons">
+    <!-- GitHub -->
+    <a href="https://github.com/NarenderrKumar" target="_blank" class="github" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-1.93c-3.19.69-3.86-1.54-3.86-1.54-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.93 10.93 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.13-1.17 3.13-1.17.63 1.57.23 2.73.11 3.02.74.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.21.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
+    </a>
+    <!-- Google Scholar -->
+    <a href="https://scholar.google.com/citations?user=k5d-Z8sAAAAJ&hl=en" target="_blank" class="scholar" title="Google Scholar">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.5 5.8 2 7l10 5 10-5-2.5-1.2L12 9.5zm0 4L4.5 9.8 2 11l10 5 10-5-2.5-1.2L12 13.5zm0 4L4.5 13.8 2 15l10 5 10-5-2.5-1.2L12 17.5z"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/kumar-narender-564a26212/" target="_blank" class="linkedin" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+    <!-- ORCID -->
+    <a href="https://orcid.org/0000-0003-3257-8408" target="_blank" class="orcid" title="ORCID">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.435h2.297c3.272 0 3.9-2.522 3.9-3.713 0-2.156-1.116-3.722-3.9-3.722h-2.297z"/></svg>
+    </a>
+  </div>
 
-<h2>About</h2>
-<p>
-I am a doctoral researcher in computational materials science working on low-dimensional materials for energy harvesting
-and storage. My work involves first-principles density functional theory (DFT) simulations, materials design, and applications 
-in hydrogen storage, catalysis, and biosensing.
-</p>
+  <hr class="divider"/>
 
-<h2>Research Interests</h2>
-<ul>
-<li>Density Functional Theory (DFT)</li>
-<li>2D Materials & Heterostructures</li>
-<li>Hydrogen Storage & Evolution</li>
-<li>MXenes & Borophene</li>
-<li>Quantum Capacitance Engineering</li>
-<li>Energy Materials</li>
-</ul>
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#teaching">Teaching</a>
+  </nav>
 
-<h2>Education</h2>
-<p>
-<strong>PhD in Physics</strong> (2022–2026)<br>
-United Arab Emirates University<br>
-Thesis: Smart low dimensional materials for energy harvesting and storage techniques
-</p>
+  <hr class="divider"/>
 
-<p>
-<strong>MSc in Physics</strong> (2017–2019)<br>
-Himachal Pradesh University<br>
-Thesis: First-Principles Study of 2D CrS<sub>2</sub> Monolayers and Nanoribbons
-</p>
+  <div class="sidebar-section-title">Projects</div>
+  <div class="project-links">
+    <a href="#projects">MXenes for Biosensors & Batteries</a>
+    <a href="#projects">Spintronics</a>
+    <a href="#projects">Kagome Materials</a>
+    <a href="#projects">Boron-based H₂ Storage</a>
+  </div>
 
-<p>
-<strong>BSc in Physics</strong> (2014–2017)<br>
-Himachal Pradesh University
-</p>
+  <div class="sidebar-footer">
+    Hosted on GitHub Pages
+  </div>
+</aside>
 
-<h2>Research Experience</h2>
-<ul>
-<li><strong>Research Intern</strong>, Michigan Technological University, USA (2025)</li>
-<li><strong>Visiting Student</strong>, National University of Singapore (2023)</li>
-<li><strong>Research Assistant</strong>, UAE University (2021–2022)</li>
-<li><strong>Project Fellow</strong>, SSGI Bhilai, India (2019–2020)</li>
-</ul>
+<!-- MAIN CONTENT -->
+<main id="main">
 
-<h2>Selected Publications</h2>
-<ul>
-<li>Breathing Kagome Lattices: Enhanced Hydrogen Evolution Catalysis (ACS AEM, 2025)</li>
-<li>Ultrahigh Hydrogen Storage Capacity in 2D Monolayers (Int. J. Hydrogen Energy, 2025)</li>
-<li>Borophene/Graphene Heterostructures for Storage (IJHE, 2024)</li>
-<li>MXene-Based Biosensor Design (ACS Applied Nano, 2024)</li>
-<li>Functionalized MXenes for Battery Cathodes (J. Power Sources, 2023)</li>
-</ul>
-<p>Full list on <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID">Google Scholar</a>.</p>
+  <h2 class="page-title" id="home">Home</h2>
+  <p class="subtitle">
+    Senior Studies Researcher – PhD Candidate, Department of Physics,<br/>
+    <a href="https://www.uaeu.ac.ae/" target="_blank">United Arab Emirates University</a>, Abu Dhabi, UAE
+  </p>
 
-<h2>Technical Skills</h2>
-<ul>
-<li>VASP, SIESTA, ATK, Gaussian</li>
-<li>Python, Fortran, Bash</li>
-<li>HPC (PBS, SLURM)</li>
-<li>ASE, Pymatgen, VESTA</li>
-</ul>
+  <!-- EDUCATION -->
+  <section id="education">
+    <h3>Education</h3>
+    <ul>
+      <li>Ph.D. in Physics — United Arab Emirates University, UAE <em>(Pursuing)</em></li>
+      <li>M.Sc. in Physics — Himachal Pradesh University, Summer Hills, Shimla, India</li>
+      <li>B.Sc. in Physics — Himachal Pradesh University, Summer Hills, Shimla, India</li>
+    </ul>
+  </section>
 
-<h2>Academic Service</h2>
-<ul>
-<li>Reviewer – International Journal of Hydrogen Energy</li>
-<li>Invited Talks & Workshops (USA, UAE, India)</li>
-</ul>
+  <!-- RESEARCH -->
+  <section id="research">
+    <h3>Research</h3>
+    <p>
+      My research focuses on <strong>low-dimensional materials</strong> and their applications in energy harvesting, energy storage, biosensing, and spintronics. I work extensively with MXenes, Kagome lattice materials, and boron-based materials, employing computational and theoretical approaches to understand and predict novel material properties. My goal is to bridge fundamental physics with real-world technological applications in next-generation devices.
+    </p>
+  </section>
 
-<hr>
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h3>Publications</h3>
+    <p>
+      For a full list of publications, see my
+      <a href="https://scholar.google.com/citations?user=k5d-Z8sAAAAJ&hl=en" target="_blank">Google Scholar profile</a>
+      or
+      <a href="https://orcid.org/0000-0003-3257-8408" target="_blank">ORCID page</a>.
+    </p>
+  </section>
 
-<div class="small">Last updated: 2026</div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="project-card">MXenes for Biosensors and Batteries Application</div>
+    <div class="project-card">Spintronics</div>
+    <div class="project-card">Kagome Materials for Energy Harvesting</div>
+    <div class="project-card">Boron-based Materials for Hydrogen Storage</div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <h3>Teaching</h3>
+    <p>I have served as a Teaching Assistant for the following courses at United Arab Emirates University:</p>
+    <ul>
+      <li>General Physics 1 (PHYS135)</li>
+      <li>General Physics 2 (PHYS140)</li>
+    </ul>
+  </section>
+
+</main>
 
 </body>
 </html>
