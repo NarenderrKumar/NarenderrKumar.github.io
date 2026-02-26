@@ -17,8 +17,8 @@
 
     /* ── SIDEBAR ── */
     #sidebar {
-      width: 260px;
-      min-width: 260px;
+      width: 320px;
+      min-width: 320px;
       padding: 40px 24px;
       border-right: 1px solid #e0e0e0;
       position: sticky;
@@ -64,6 +64,7 @@
     .social-icons a.scholar:hover { background: #4285F4; }
     .social-icons a.linkedin:hover{ background: #0077b5; }
     .social-icons a.orcid:hover   { background: #A6CE39; color: #fff; }
+    .social-icons a.researchgate:hover { background: #00CCBB; color: #fff; }
 
     .social-icons svg { width: 18px; height: 18px; fill: currentColor; }
 
@@ -176,6 +177,80 @@
       color: #222;
     }
 
+    /* ── NEWS SECTION ── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .news-items { display: flex; flex-direction: column; gap: 18px; }
+
+    .news-item {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #333;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-item a { color: #00AAAA; text-decoration: none; font-weight: 500; }
+    .news-item a:hover { text-decoration: underline; }
+
+    .news-photos { display: flex; flex-direction: column; gap: 14px; }
+
+    .news-photos img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      max-height: 200px;
+      border: 1px solid #eee;
+    }
+
+    .uaeu-photo-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      text-decoration: none;
+      display: block;
+    }
+
+    .uaeu-photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .uaeu-photo-caption {
+      background: #f8f9fb;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      color: #555;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8f9fb;
+      border: 1px solid #e8eaf0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.88rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .link-card:hover { background: #eef2fb; border-color: #4078c8; }
+    .link-card .link-icon { font-size: 1.3rem; }
+    .link-card .link-text { font-weight: 600; color: #4078c8; }
+    .link-card .link-sub { font-size: 0.78rem; color: #888; margin-top: 1px; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       body { flex-direction: column; }
@@ -207,6 +282,10 @@
     <a href="https://orcid.org/0000-0003-3257-8408" target="_blank" class="orcid" title="ORCID">
       <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.435h2.297c3.272 0 3.9-2.522 3.9-3.713 0-2.156-1.116-3.722-3.9-3.722h-2.297z"/></svg>
     </a>
+    <!-- ResearchGate -->
+    <a href="https://www.researchgate.net/profile/Narender-Kumar-34?ev=hdr_xprf" target="_blank" class="researchgate" title="ResearchGate">
+      <svg viewBox="0 0 24 24"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zm-7.494 5.12c1.815 0 3.391 1.024 3.391 2.953 0 1.497-.9 2.576-2.181 2.953l2.521 3.578h-1.784l-2.249-3.343h-.769v3.343H9.616V5.12zm-.072 1.317h-.999v3.578h.972c1.17 0 1.93-.613 1.93-1.784 0-1.184-.76-1.794-1.903-1.794zm6.525 4.51v1.212h-1.58v1.58h-1.213v-1.58h-1.58v-1.212h1.58V9.367h1.212v1.58z"/></svg>
+    </a>
   </div>
 
   <hr class="divider"/>
@@ -214,16 +293,19 @@
   <nav class="nav-links">
     <a href="#home">Home</a>
     <a href="#teaching">Teaching</a>
+    <a href="#quicklinks">University Links</a>
+    <a href="#news">News</a>
   </nav>
 
   <hr class="divider"/>
 
   <div class="sidebar-section-title">Projects</div>
   <div class="project-links">
-    <a href="#projects">MXenes for Biosensors & Batteries</a>
-    <a href="#projects">Spintronics</a>
     <a href="#projects">Kagome Materials</a>
     <a href="#projects">Boron-based H₂ Storage</a>
+    <a href="#projects">MXenes for Biosensors</a>
+    <a href="#projects">MXenes for Batteries</a>
+    <a href="#projects">Spintronics</a>
   </div>
 
   <div class="sidebar-footer">
@@ -261,21 +343,18 @@
   <!-- PUBLICATIONS -->
   <section id="publications">
     <h3>Publications</h3>
-    <p>
-      For a full list of publications, see my
-      <a href="https://scholar.google.com/citations?user=k5d-Z8sAAAAJ&hl=en" target="_blank">Google Scholar profile</a>
-      or
-      <a href="https://orcid.org/0000-0003-3257-8408" target="_blank">ORCID page</a>.
-    </p>
+    <p>For a full list of publications, see my <a href="https://scholar.google.com/citations?user=k5d-Z8sAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</p>
+    <p style="margin-top:8px;">Also available on <a href="https://orcid.org/0000-0003-3257-8408" target="_blank">ORCID</a>.</p>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <h3>Projects</h3>
-    <div class="project-card">MXenes for Biosensors and Batteries Application</div>
-    <div class="project-card">Spintronics</div>
     <div class="project-card">Kagome Materials for Energy Harvesting</div>
     <div class="project-card">Boron-based Materials for Hydrogen Storage</div>
+    <div class="project-card">MXenes for Biosensors Application</div>
+    <div class="project-card">MXenes for Batteries Application</div>
+    <div class="project-card">Spintronics</div>
   </section>
 
   <!-- TEACHING -->
@@ -284,10 +363,69 @@
     <p>I have served as a Teaching Assistant for the following courses at United Arab Emirates University:</p>
     <ul>
       <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS105" target="_blank">General Physics 1 (PHYS105)</a></li>
-      <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS135" target="_blank">General Physics 1 (PHYS135)</a></li>
-      <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS140" target="_blank">General Physics 2 (PHYS140)</a></li>
+      <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS135" target="_blank">GP Lab I (PHYS135)</a></li>
+      <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS140" target="_blank">GP Lab II (PHYS140)</a></li>
     </ul>
   </section>
+
+  <!-- QUICK LINKS -->
+  <section id="quicklinks">
+    <h3>University Links</h3>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <a href="https://www.uaeu.ac.ae/en/" target="_blank" class="link-card">
+        <span class="link-icon">🎓</span>
+        <div>
+          <div class="link-text">United Arab Emirates University</div>
+          <div class="link-sub">uaeu.ac.ae — Official University Website</div>
+        </div>
+      </a>
+      <a href="https://www.uaeu.ac.ae/ar/cgs/tdd/newsletter-2022-2023.pdf" target="_blank" class="link-card">
+        <span class="link-icon">📰</span>
+        <div>
+          <div class="link-text">UAEU Newsletter 2022–2023</div>
+          <div class="link-sub">College of Graduate Studies — Annual Newsletter (PDF)</div>
+        </div>
+      </a>
+      <a href="https://research.uaeu.ac.ae/en/searchAll/index/?search=Narender+Kumar&pageSize=25&showAdvanced=false&allConcepts=true&inferConcepts=true&searchBy=PartOfNameOrTitle" target="_blank" class="link-card">
+        <span class="link-icon">🔬</span>
+        <div>
+          <div class="link-text">Research Output at UAEU</div>
+          <div class="link-sub">Browse publications by Narender Kumar on UAEU Research Portal</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEWS & HIGHLIGHTS -->
+  <section id="news">
+    <h3>News &amp; Highlights</h3>
+    <div class="news-grid">
+      <div class="news-items">
+        <div class="news-item">
+          Visited <strong>National University of Singapore</strong>, June 17th – July 5th, 2023, in <a href="https://www.nus.edu.sg/" target="_blank">Singapore.</a>
+        </div>
+        <div class="news-item">
+          Resource person: international workshop on <strong>Materials Modeling through Machine Learning and SIESTA</strong>, 14th – 19th April 2023, in <a href="#">Himachal, India</a>
+        </div>
+        <div class="news-item">
+          Resource person in international workshop on <strong>Experimental and Simulation Solution for Developing Novel Sustainable Materials</strong>, 8th–10th Feb 2023, in <a href="#">Raipur, India (online)</a>
+        </div>
+        <div class="news-item">
+          Invited Talk on <strong>Research Opportunities in Material Science</strong>, 28 Oct 2022, at <a href="#">Himachal Pradesh, India</a>
+        </div>
+      </div>
+      <div class="news-photos">
+        <a href="https://www.uaeu.ac.ae/en/" target="_blank" class="uaeu-photo-card">
+          <img src="https://www.uaeu.ac.ae/en/images/uaeu-campus.jpg"
+               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/UAEU_Campus.jpg/640px-UAEU_Campus.jpg'; this.onerror=null;"
+               alt="United Arab Emirates University Campus"/>
+          <div class="uaeu-photo-caption">United Arab Emirates University, Abu Dhabi</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
 
 </main>
 
