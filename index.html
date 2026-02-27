@@ -185,7 +185,7 @@
       align-items: start;
     }
 
-    .news-items { display: flex; flex-direction: column; gap: 18px; }
+    .news-items { display: flex; flex-direction: column; gap: 14px; }
 
     .news-item {
       font-size: 0.95rem;
@@ -196,18 +196,23 @@
     }
     .news-item:last-child { border-bottom: none; }
 
+    .news-year-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4078c8;
+      background: #eef2fb;
+      border-radius: 4px;
+      padding: 2px 10px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
     .news-item a { color: #00AAAA; text-decoration: none; font-weight: 500; }
     .news-item a:hover { text-decoration: underline; }
 
     .news-photos { display: flex; flex-direction: column; gap: 14px; }
-
-    .news-photos img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      max-height: 200px;
-      border: 1px solid #eee;
-    }
 
     .uaeu-photo-card {
       border-radius: 8px;
@@ -225,6 +230,29 @@
     }
 
     .uaeu-photo-caption {
+      background: #f8f9fb;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      color: #555;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .photo-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      display: block;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-card-caption {
       background: #f8f9fb;
       padding: 8px 12px;
       font-size: 0.82rem;
@@ -256,6 +284,7 @@
       body { flex-direction: column; }
       #sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e0e0e0; }
       #main { padding: 28px 20px; }
+      .news-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -308,9 +337,7 @@
     <a href="#projects">Spintronics</a>
   </div>
 
-  <div class="sidebar-footer">
- 
-  </div>
+  <div class="sidebar-footer"></div>
 </aside>
 
 <!-- MAIN CONTENT -->
@@ -352,16 +379,16 @@
   <section id="projects">
     <h3>Projects</h3>
     <div class="project-card">Kagome Materials for Energy Harvesting</div>
-    <div class="project-card">Hydrogen Storage</div>
-    <div class="project-card">Biosensors</div>
-    <div class="project-card">Batteries</div>
+    <div class="project-card">Boron-based Materials for Hydrogen Storage</div>
+    <div class="project-card">MXenes for Biosensors Application</div>
+    <div class="project-card">MXenes for Batteries Application</div>
     <div class="project-card">Spintronics</div>
   </section>
 
   <!-- TEACHING -->
   <section id="teaching">
     <h3>Teaching</h3>
-    <p>I have served as a adjunct faculty for the following courses at United Arab Emirates University:</p>
+    <p>I have served as adjunct faculty for the following courses at United Arab Emirates University:</p>
     <ul>
       <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS105" target="_blank">General Physics I (PHYS105)</a></li>
       <li><a href="https://www.uaeu.ac.ae/en/cos//courses/course_2957.shtml?id=PHYS135" target="_blank">General Physics Lab I (PHYS135)</a></li>
@@ -402,18 +429,45 @@
     <h3>News &amp; Highlights</h3>
     <div class="news-grid">
       <div class="news-items">
+
+        <div class="news-year-label">2026</div>
         <div class="news-item">
-          Visited <strong>National University of Singapore</strong>, June 17th – July 5th, 2023, in <a href="https://www.nus.edu.sg/" target="_blank">Singapore.</a>
+          🏆 <strong>Two papers ranked in top 10%</strong> and one paper in <strong>top 15%</strong> publications awarded a total of <strong>AED 2,500 (≈ USD 680)</strong> by UAE University.
+        </div>
+
+        <div class="news-year-label">2025</div>
+        <div class="news-item">
+          🔬 <strong>Research Intern</strong> (May–August 2025), Physics Department, <strong>Michigan Technological University</strong>, USA. Focus: Two-dimensional materials for energy harvesting and storage.
         </div>
         <div class="news-item">
-          Resource person: international workshop on <strong>Materials Modeling through Machine Learning and SIESTA</strong>, 14th – 19th April 2023, in <a href="#">Himachal, India</a>
+          ✈️ <strong>Fully-funded Travel Grant</strong> of <strong>USD 1,000</strong> to attend the <em>AI Powered Materials Discovery Workshop</em>, June 22–25, 2025, Vermillion, South Dakota University, USA.
         </div>
         <div class="news-item">
-          Resource person in international workshop on <strong>Experimental and Simulation Solution for Developing Novel Sustainable Materials</strong>, 8th–10th Feb 2023, in <a href="#">Raipur, India (online)</a>
+          🎤 Invited Talk: <em>"Borophene/graphene heterostructure for effective hydrogen storage with facile dehydrogenation"</em>, 6th August 2025 — Physics Department, <strong>Michigan Tech. University</strong>, USA.
         </div>
         <div class="news-item">
-          Invited Talk on <strong>Research Opportunities in Material Science</strong>, 28 Oct 2022, at <a href="#">Himachal Pradesh, India</a>
+          📚 Resource Person: International FDP on <em>"Hands-on Training in Computational Materials Science"</em>, 23 June – 5 July 2025 — Chemistry Department, <strong>Anurag University</strong>, Hyderabad, India.
         </div>
+        <div class="news-item">
+          🎤 Invited Talk: <em>"Role of Computational Material Science in Innovations"</em> — Chemistry Department, <strong>Government College Karsog</strong>, Mandi, Himachal Pradesh, India.
+        </div>
+
+        <div class="news-year-label">2023</div>
+        <div class="news-item">
+          🌏 <strong>Visiting Student</strong> (May–June 2023), Physics Department, <strong>National University of Singapore</strong>.
+        </div>
+        <div class="news-item">
+          📚 Resource Person: International workshop on <strong>Materials Modeling through Machine Learning and SIESTA</strong>, 14th–19th April 2023, Himachal, India.
+        </div>
+        <div class="news-item">
+          📚 Resource Person: International workshop on <strong>Experimental and Simulation Solution for Developing Novel Sustainable Materials</strong>, 8th–10th Feb 2023, <a href="#">Raipur, India (online)</a>.
+        </div>
+
+        <div class="news-year-label">2022</div>
+        <div class="news-item">
+          🎤 Invited Talk on <strong>Research Opportunities in Material Science</strong>, 28 Oct 2022, Himachal Pradesh, India.
+        </div>
+
       </div>
       <div class="news-photos">
         <a href="https://www.uaeu.ac.ae/en/" target="_blank" class="uaeu-photo-card">
@@ -422,11 +476,15 @@
                alt="United Arab Emirates University Campus"/>
           <div class="uaeu-photo-caption">United Arab Emirates University, Abu Dhabi</div>
         </a>
+        <!-- YOUR PHOTOS GO HERE — paste Google Drive links like this:
+        <div class="photo-card">
+          <img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID" alt="description"/>
+          <div class="photo-card-caption">Your caption here</div>
+        </div>
+        -->
       </div>
     </div>
   </section>
-
-
 
 </main>
 
